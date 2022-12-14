@@ -1878,13 +1878,15 @@ public class ClientStateMachine extends StateMachine implements IMalmoMessageLis
             Minecraft.getMinecraft().gameSettings.guiScale = missionBehaviour.guiScale;
             Minecraft.getMinecraft().gameSettings.fovSetting = missionBehaviour.fovSetting;
 
-            if (missionBehaviour.lowLevelInputs) {
-                Minecraft.getMinecraft().gameSettings.hideGUI = false;
-                Minecraft.getMinecraft().gameSettings.fancyGraphics = true;
-            } else {
-                // Disable the gui for the episode!
-                Minecraft.getMinecraft().gameSettings.hideGUI = true;
-            }
+//            if (missionBehaviour.lowLevelInputs) {
+//                Minecraft.getMinecraft().gameSettings.hideGUI = false;
+//                Minecraft.getMinecraft().gameSettings.fancyGraphics = true;
+//            } else {
+            // Disable the gui for the episode!
+            Minecraft.getMinecraft().gameSettings.hideGUI = true;
+            Minecraft.getMinecraft().gameSettings.fancyGraphics = false;
+            Minecraft.getMinecraft().gameSettings.clouds = 0;
+//            }
 
             for (IVideoProducer videoProducer : currentMissionBehaviour().videoProducers)
             {
