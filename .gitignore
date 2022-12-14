@@ -284,7 +284,6 @@ gradle-app.setting
 #IDE files
 .idea
 *.iml
-run/
 .DS_Store
 
 out/
