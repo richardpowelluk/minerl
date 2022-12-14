@@ -3264,16 +3264,33 @@ diff -u1 -rN MCP-Reborn-vanilla/src/main/java/net/minecraft/client/GameSettings.
  import com.google.gson.Gson;
 +import com.google.gson.JsonObject;
  import com.google.gson.reflect.TypeToken;
+@@ -61,7 +62,7 @@
+    public double mouseSensitivity = 0.5D;
+-   public int renderDistanceChunks = -1;
++   public int renderDistanceChunks = 4;
+    public float entityDistanceScaling = 1.0F;
+    public int framerateLimit = 120;
+-   public CloudOption cloudOption = CloudOption.FANCY;
++   public CloudOption cloudOption = CloudOption.FAST;
+-   public GraphicsFanciness graphicFanciness = GraphicsFanciness.FANCY;
++   public GraphicsFanciness graphicFanciness = GraphicsFanciness.FAST;
+    public AmbientOcclusionStatus ambientOcclusionStatus = AmbientOcclusionStatus.MAX;
 @@ -77,3 +78,3 @@
     public boolean advancedItemTooltips;
 -   public boolean pauseOnLostFocus = true;
 +   public boolean pauseOnLostFocus = false;
     private final Set<PlayerModelPart> setModelParts = Sets.newHashSet(PlayerModelPart.values());
-@@ -98,3 +99,3 @@
+@@ -98,8 +99,8 @@
     public int glDebugVerbosity = 1;
 -   public boolean autoJump = true;
 +   public boolean autoJump = false;
     public boolean autoSuggestCommands = true;
+    public boolean chatColor = true;
+    public boolean chatLinks = true;
+    public boolean chatLinksPrompt = true;
+-   public boolean vsync = true;
++   public boolean vsync = false;
+    public boolean entityShadows = true;
 @@ -165,3 +166,3 @@
     public double gamma;
 -   public int guiScale;
