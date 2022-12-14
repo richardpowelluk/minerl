@@ -1882,6 +1882,8 @@ public class ClientStateMachine extends StateMachine implements IMalmoMessageLis
 //                Minecraft.getMinecraft().gameSettings.hideGUI = false;
 //                Minecraft.getMinecraft().gameSettings.fancyGraphics = true;
 //            } else {
+	    raise new BrokenCode();
+
             // Disable the gui for the episode!
             Minecraft.getMinecraft().gameSettings.hideGUI = true;
             Minecraft.getMinecraft().gameSettings.fancyGraphics = false;
