@@ -171,10 +171,11 @@ public abstract class MixinMinecraftGameloop {
 
         
         //Speeds up rendering; though it feels necessary. s
-        GlStateManager.pushMatrix();
-        GlStateManager.clear(16640);
-        this.framebufferMc.bindFramebuffer(true);
-
+	if(!TimeHelper.SyncManager.isSynchronous()){
+            GlStateManager.pushMatrix();
+            GlStateManager.clear(16640);
+            this.framebufferMc.bindFramebuffer(true);
+        }
         this.mcProfiler.startSection("display");
         GlStateManager.enableTexture2D();
         this.mcProfiler.endSection(); //display
@@ -209,15 +210,17 @@ public abstract class MixinMinecraftGameloop {
             this.prevFrameTime = System.nanoTime();
         }
 
-        this.guiAchievement.updateAchievementWindow();
-        this.framebufferMc.unbindFramebuffer();
-        GlStateManager.popMatrix();
-        GlStateManager.pushMatrix();
-        this.framebufferMc.framebufferRender(this.displayWidth, this.displayHeight);
-        GlStateManager.popMatrix();
-        GlStateManager.pushMatrix();
-        this.entityRenderer.renderStreamIndicator(this.timer.renderPartialTicks);
-        GlStateManager.popMatrix();
+	if(!TimeHelper.SyncManager.isSynchronous()){
+            this.guiAchievement.updateAchievementWindow();
+            this.framebufferMc.unbindFramebuffer();
+            GlStateManager.popMatrix();
+            GlStateManager.pushMatrix();
+            this.framebufferMc.framebufferRender(this.displayWidth, this.displayHeight);
+            GlStateManager.popMatrix();
+            GlStateManager.pushMatrix();
+            this.entityRenderer.renderStreamIndicator(this.timer.renderPartialTicks);
+            GlStateManager.popMatrix();
+        }
 
         this.mcProfiler.startSection("root");
         TimeHelper.updateDisplay();
