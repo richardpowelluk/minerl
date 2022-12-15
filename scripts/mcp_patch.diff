@@ -3305,7 +3305,7 @@ diff -u1 -rN MCP-Reborn-vanilla/src/main/java/net/minecraft/client/GameSettings.
 +   public String loadWorldFile = null;
 +   public String replayFile = null;
  
-@@ -181,3 +188,8 @@
+@@ -181,4 +188,9 @@
 -      this.renderDistanceChunks = mcIn.isJava64bit() ? 12 : 8;
 +      this.renderDistanceChunks = 4;
        this.syncChunkWrites = Util.getOSType() == Util.OS.WINDOWS;
